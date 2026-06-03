@@ -54,6 +54,12 @@ The numbers below describe the live system, not this repo. You do not need to re
 - **Reports.** One per ticket in `reports/FT-N.md`. See [About the reports](#about-the-reports) below — they are not a tech spec. `reports/` is your submission; `docs/` is the repo's own documentation — don't conflate them.
 - **If you get blocked**, do not stop. Write the question you would have asked the team in `reports/QUESTIONS.md`, take the best decision you can with the info you have, and keep moving. We evaluate how you unblock yourself, not whether you do.
 
+### Sharing your final version
+
+When you're done, share your final version with **[`DiegoloM3`](https://github.com/DiegoloM3)** — invite them as a collaborator on your private repo and send them the PR link(s). They are the reviewer; if they can't open your repo, there is nothing for us to read.
+
+> **No access, no answer.** If you don't give us access, don't expect us to get back to you. We won't chase a submission we can't see — the invite is your responsibility, and a repo we can't open is a repo we treat as never submitted.
+
 ### About the reports
 
 We assume the code in your submission was largely written by an LLM, supervised by you. That's how engineers ship in 2026, and we're not going to pretend otherwise.
