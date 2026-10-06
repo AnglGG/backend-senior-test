@@ -55,23 +55,23 @@ We're not looking for a polished essay. We're looking for signal:
 
 ---
 
-## FT-1 · Home-screen activity feed
+## FT-1 · Social activity feed
 
 **Type:** Feature
 **Estimate:** ~60 min
 **Priority:** P0
 
 ### Story
-As a user opening the app, I want to see a feed of recent workouts from the people I follow, so that the home screen has a reason to keep me there on cold start.
+As a user opening the Social screen, I want to see a feed of recent workouts from the people I follow, so that I have a reason to come back every day.
 
 ### Context
-The home screen needs the backend that powers the feed card. The card is the first thing every active user sees on cold start, every day — so it's also the first thing that hurts when it's slow.
+The feed must be built to power the Social screen of the current production version of Symmetry. It has to stay fast on realistic data: if it's slow, users feel it straight away.
 
 ### Design freedom — your call
 The shape of this feature is the part we want you to design. We won't tell you:
 
 - **Route, method, URL.** Pick one consistent with the existing URL conventions in this repo and justify it.
-- **Response shape.** Design it so the frontend can render a card in one round-trip — workout meta, owner, counts (likes / comments / exercises), the three latest likers (id + display name + avatar), and whether the caller already liked the workout. Justify your trade-offs.
+- **Response shape.** Design it so the frontend can render each feed item in one round-trip — workout meta, owner, counts (likes / comments / exercises), the three latest likers (id + display name + avatar), and whether the caller already liked the workout. Justify your trade-offs.
 - **Pagination strategy.** Offset/limit or cursor. Pick one, say why.
 - **Where the feature folder lives.** Across `social/`, `users/`, `workout_sessions/`. Pick one and justify.
 - **Cross-domain queries.** Pulling workouts (`workout_sessions`) filtered by follows (`social`) means crossing an app boundary. Decide whether to go through `core/apis/domain_to_domain/` or keep the join local — and justify.
@@ -79,7 +79,7 @@ The shape of this feature is the part we want you to design. We won't tell you:
 In `reports/FT-1.md`, list **two alternatives you considered and rejected**, and why. We want to see the design space you explored, not only the option you landed on.
 
 ### Definition of done
-- [ ] Endpoint returns everything the home-screen card needs in a single round-trip: workout meta, owner, counts, three latest likers, whether the caller liked it.
+- [ ] Endpoint returns everything the Social screen needs for each feed item in a single round-trip: workout meta, owner, counts, three latest likers, whether the caller liked it.
 - [ ] Feed contains workouts from everyone the caller follows, sorted most recent first. No artificial cap — the client can keep paginating until there are no more workouts to return.
 - [ ] Caller follows nobody → empty `200`, not `500`.
 - [ ] The caller's own workouts never appear in the response.
