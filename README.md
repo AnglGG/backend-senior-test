@@ -52,7 +52,7 @@ The numbers below describe the live system, not this repo. You do not need to re
 - **Format.** Clone this repo (don't fork) into a fresh folder, then create a **private** repo in your own GitHub account and push your work there. Invite the reviewer as a collaborator and open Pull Requests inside your private repo. See [`SETUP.md`](SETUP.md) for the exact commands.
 - **Commits.** At least one commit per ticket, prefixed with the ticket key (`FT-1: …`). Splitting a ticket into two or three logical commits is fine and encouraged. The history is read as a signal of how you organize work.
 - **Reports.** One per ticket in `reports/FT-N.md`. See [About the reports](#about-the-reports) below — they are not a tech spec. `reports/` is your submission; `docs/` is the repo's own documentation — don't conflate them.
-- **If you get blocked**, do not stop. Write the question you would have asked the team in `reports/QUESTIONS.md`, take the best decision you can with the info you have, and keep moving. We evaluate how you unblock yourself, not whether you do.
+- **If you get blocked**, do not stop. Write the question you would have asked the team in `reports/QUESTIONS.md`, take the best decision you can with the info you have, and keep moving. This does not cover the FT-1 response shape: that is defined by the production app. We evaluate how you unblock yourself, not whether you do.
 
 ### Sharing your final version
 

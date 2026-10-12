@@ -67,19 +67,22 @@ As a user opening the Social screen, I want to see a feed of recent workouts fro
 ### Context
 The feed must be built to power the Social screen of the current production version of Symmetry. It has to stay fast on realistic data: if it's slow, users feel it straight away.
 
-### Design freedom — your call
-The shape of this feature is the part we want you to design. We won't tell you:
+### Design freedom — your call (except the response shape)
+Most of this feature is yours to design. The response shape is not: the production app already defines it.
+
+**Response shape — match production, don't invent it.** The frontend must render each feed item in one round-trip — workout meta, owner, counts (likes / comments / exercises), the three latest likers (id + display name + avatar), and whether the caller already liked the workout. The shape must match what the Social feed of the current production Symmetry app (v7.15.0 at time of writing) renders today. If something is unclear, ask us instead of inventing it, and log the question in `reports/QUESTIONS.md`. Justify your trade-offs.
+
+For the rest, we won't tell you:
 
 - **Route, method, URL.** Pick one consistent with the existing URL conventions in this repo and justify it.
-- **Response shape.** Design it so the frontend can render each feed item in one round-trip — workout meta, owner, counts (likes / comments / exercises), the three latest likers (id + display name + avatar), and whether the caller already liked the workout. Justify your trade-offs.
 - **Pagination strategy.** Offset/limit or cursor. Pick one, say why.
 - **Where the feature folder lives.** Across `social/`, `users/`, `workout_sessions/`. Pick one and justify.
 - **Cross-domain queries.** Pulling workouts (`workout_sessions`) filtered by follows (`social`) means crossing an app boundary. Decide whether to go through `core/apis/domain_to_domain/` or keep the join local — and justify.
 
-In `reports/FT-1.md`, list **two alternatives you considered and rejected**, and why. We want to see the design space you explored, not only the option you landed on.
+In `reports/FT-1.md`, list **two alternatives you considered and rejected** for the decisions that are yours (not the response shape), and why. We want to see the design space you explored, not only the option you landed on.
 
 ### Definition of done
-- [ ] Endpoint returns everything the Social screen needs for each feed item in a single round-trip: workout meta, owner, counts, three latest likers, whether the caller liked it.
+- [ ] Endpoint returns everything the Social screen needs for each feed item in a single round-trip, in a shape that matches what the production app's Social feed shows: workout meta, owner, counts, three latest likers, whether the caller liked it.
 - [ ] Feed contains workouts from everyone the caller follows, sorted most recent first. No artificial cap — the client can keep paginating until there are no more workouts to return.
 - [ ] Caller follows nobody → empty `200`, not `500`.
 - [ ] The caller's own workouts never appear in the response.
